@@ -1,35 +1,44 @@
 import { useState, useEffect } from 'react';
-import { getUsers } from '../../servises/usersApi';
-import { Checkbox, useCheckboxStore } from '@ariakit/react';
 
-import { UserCards, CheckboxButton } from './UserCardsItem.styled';
+import image from '../../img/picture.png';
 
-export const UserCardsItem = () => {
-  const [users, setUsers] = useState([]);
-  const checkbox = useCheckboxStore();
-  const label = checkbox.useState(state => (state.value ? 'Checked' : 'Unchecked'));
+import {
+  CardsItem,
+  CheckboxContainer,
+  CheckboxInput,
+  CheckboxInputLabelOff,
+  CheckboxInputLabelOn,
+} from './UserCardsItem.styled';
 
-  useEffect(() => {
-    getUsers().then(data => {
-      setUsers(data);
-    });
-  }, []);
+export const UserCardsItem = user => {
+  const [checked, setChecked] = useState(false);
 
-  console.log(users);
+  const { id, avatar, tweets, followers } = user.user;
+
+  const folowersChange = () => {
+    setChecked(!checked);
+
+    if (checked) {
+      return console.log('Not');
+    }
+    console.log('Yes');
+  };
 
   return (
-    <div>
-      {users.map(user => (
-        <UserCards key={user.id}>
-          <img src={user.avatar} alt="" />
-          <p>{user.tweets} TWEETS</p>
-          <p>{user.followers} FOLOWERS</p>
-          <input type="checkbox" />
-          <CheckboxButton as="button" store={checkbox} className="button">
-            {label}
-          </CheckboxButton>
-        </UserCards>
-      ))}
-    </div>
+    <CardsItem key={id}>
+      <img src={image} alt="" />
+
+      <img src={avatar} alt="" />
+      <p>{tweets} TWEETS</p>
+      <p>{followers} FOLOWERS</p>
+      <CheckboxContainer>
+        <CheckboxInput type="checkbox" id={id} checked={checked} onChange={folowersChange} />
+        {checked ? (
+          <CheckboxInputLabelOn htmlFor={id}>Following</CheckboxInputLabelOn>
+        ) : (
+          <CheckboxInputLabelOff htmlFor={id}>Follow</CheckboxInputLabelOff>
+        )}
+      </CheckboxContainer>
+    </CardsItem>
   );
 };
