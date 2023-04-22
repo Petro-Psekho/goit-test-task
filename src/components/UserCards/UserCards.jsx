@@ -3,6 +3,8 @@ import { getUsers } from '../../servises/usersApi';
 
 import { UserCardsItem } from '../UserCardsItem/UserCardsItem';
 
+import { Container } from './UserCards.styled';
+
 export const UserCards = () => {
   const [users, setUsers] = useState([]);
 
@@ -13,12 +15,10 @@ export const UserCards = () => {
   }, []);
 
   return (
-    <div>
-      <ul>
-        {users.map(user => (
-          <UserCardsItem key={user.id} user={user} />
-        ))}
-      </ul>
-    </div>
+    <Container>
+      {users.map(user => (
+        <UserCardsItem key={user.id} user={user} />
+      ))}
+    </Container>
   );
 };

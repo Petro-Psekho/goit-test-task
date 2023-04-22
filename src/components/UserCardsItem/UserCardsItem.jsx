@@ -2,10 +2,18 @@ import { useState, useEffect } from 'react';
 import { updateUser } from '../../servises/usersApi';
 
 import image from '../../img/picture.png';
+import logo from '../../img/Logo.png';
 
 import {
   CardsItem,
   CheckboxContainer,
+  Logo,
+  BgImage,
+  Rectangle,
+  AvatarWrap,
+  Avatar,
+  Tweets,
+  Followers,
   CheckboxInput,
   CheckboxInputLabelOff,
   CheckboxInputLabelOn,
@@ -37,11 +45,14 @@ export const UserCardsItem = user => {
 
   return (
     <CardsItem key={id}>
-      <img src={image} alt="" />
+      <Logo src={logo} alt="goit logo" />
+      <BgImage src={image} alt="background image" />
+      <Rectangle />
+      <AvatarWrap />
+      <Avatar src={avatar} alt="user avatar" />
 
-      <img src={avatar} alt="" />
-      <p>{tweets} TWEETS</p>
-      <p>{follow} FOLOWERS</p>
+      <Tweets>{tweets} TWEETS</Tweets>
+      <Followers>{follow} FOLOWERS</Followers>
       <CheckboxContainer>
         <CheckboxInput type="checkbox" id={id} checked={checked} onChange={folowersChange} />
         {checked ? (
