@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { updateUser } from '../../servises/usersApi';
 
 import image from '../../img/picture.png';
 
@@ -11,17 +12,21 @@ import {
 } from './UserCardsItem.styled';
 
 export const UserCardsItem = user => {
-  const [checked, setChecked] = useState(false);
-
   const { id, avatar, tweets, followers } = user.user;
 
-  const folowersChange = () => {
+  const [checked, setChecked] = useState(false);
+  const [follow, setFollow] = useState(followers);
+
+  const folowersChange = async () => {
     setChecked(!checked);
 
-    if (checked) {
-      return console.log('Not');
+    if (!checked) {
+      setFollow(prevState => prevState + 1);
+      await updateUser(id, follow + 1);
+    } else {
+      setFollow(prevState => prevState - 1);
+      await updateUser(id, follow - 1);
     }
-    console.log('Yes');
   };
 
   return (
@@ -30,7 +35,7 @@ export const UserCardsItem = user => {
 
       <img src={avatar} alt="" />
       <p>{tweets} TWEETS</p>
-      <p>{followers} FOLOWERS</p>
+      <p>{follow} FOLOWERS</p>
       <CheckboxContainer>
         <CheckboxInput type="checkbox" id={id} checked={checked} onChange={folowersChange} />
         {checked ? (
