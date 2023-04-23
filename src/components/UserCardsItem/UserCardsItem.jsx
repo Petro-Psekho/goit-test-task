@@ -30,8 +30,6 @@ export const UserCardsItem = user => {
   const folowersChange = async () => {
     setChecked(!checked);
 
-    console.log(checked, id);
-
     if (!checked) {
       setFollow(prevState => prevState + 1);
       // setChecked(prevState => prevState, true);

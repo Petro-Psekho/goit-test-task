@@ -18,6 +18,7 @@ export const UserCards = () => {
 
   const handleLoadMore = async () => {
     setLoadMore(true);
+
     setPage(prevState => prevState + 1);
     const data = await getUsers(page);
     setUsers(prevState => [...prevState, ...data]);
@@ -36,6 +37,7 @@ export const UserCards = () => {
           ))}
         </UserCartsList>
       </div>
+      {loadMore && <Loader />}
       <LoadMoreButton
         style={{ display: users.length > 11 ? 'none' : 'block' }}
         onClick={handleLoadMore}
