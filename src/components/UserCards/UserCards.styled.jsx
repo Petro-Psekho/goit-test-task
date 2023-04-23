@@ -1,6 +1,13 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.ul`
+export const ListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const UserCartsList = styled.ul`
   max-width: 1280px;
   margin: 0 auto;
 
@@ -10,4 +17,24 @@ export const Container = styled.ul`
   gap: 40px;
 
   text-align: center;
+`;
+
+export const LoadMoreButton = styled.button`
+  display: inline-block;
+
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 14px 56px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #373737;
+  cursor: pointer;
+  background-color: #ebd8ff;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 10px;
 `;
