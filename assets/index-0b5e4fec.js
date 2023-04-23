@@ -331,9 +331,8 @@ Error generating stack: `+i.message+`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
-
-  text-align: center;
 `,Gv=xe.button`
   display: inline-block;
 
