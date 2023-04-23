@@ -14,9 +14,8 @@ export const UserCartsList = styled.ul`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
-
-  text-align: center;
 `;
 
 export const LoadMoreButton = styled.button`
