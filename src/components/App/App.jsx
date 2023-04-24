@@ -1,8 +1,13 @@
+import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Home } from "../../pages/Home/Home";
-import { Cards } from "../../pages/Cards/Cards";
-import { NotFound } from "../../pages/NotFound";
+const Home = lazy(() => import("../../pages/Home/Home"));
+const Cards = lazy(() => import("../../pages/Cards/Cards"));
+const NotFound = lazy(() => import("../../pages/NotFound"));
+
+// import { Home } from "../../pages/Home/Home";
+// import { Cards } from "../../pages/Cards/Cards";
+// import { NotFound } from "../../pages/NotFound";
 
 import logoGoIt from "../../img/goit.png";
 import { Header, StyledLink, LogoWrap, Logo } from "./App.styled";
@@ -23,12 +28,13 @@ export const App = () => {
           <StyledLink to="/cards">Cards</StyledLink>
         </nav>
       </Header>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cards" element={<Cards />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" index element={<Home />} />
+          <Route path="/cards" element={<Cards />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </main>
   );
 };
