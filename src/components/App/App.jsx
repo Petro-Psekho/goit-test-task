@@ -1,15 +1,15 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
-import { Home } from '../../pages/Home/Home';
-import { Cards } from '../../pages/Cards/Cards';
-import { NotFound } from '../../pages/NotFound';
+import { Home } from "../../pages/Home/Home";
+import { Cards } from "../../pages/Cards/Cards";
+import { NotFound } from "../../pages/NotFound";
 
-import logoGoIt from '../../img/goit.png';
-import { Header, StyledLink, LogoWrap, Logo } from './App.styled';
+import logoGoIt from "../../img/goit.png";
+import { Header, StyledLink, LogoWrap, Logo } from "./App.styled";
 
 export const App = () => {
   return (
-    <>
+    <main>
       <Header>
         <LogoWrap>
           <Logo src={logoGoIt} alt="GOIT Logo" />
@@ -29,6 +29,6 @@ export const App = () => {
         <Route path="/cards" element={<Cards />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </main>
   );
 };
