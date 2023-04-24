@@ -1,4 +1,4 @@
-import{R as G,r as oe,i as Yt,n as Y,j as L}from"./index-e0f057cf.js";var $e={},Fn={get exports(){return $e},set exports(e){$e=e}},$={};/** @license React v16.13.1
+import{R as G,r as oe,i as Yt,n as Y,j as L}from"./index-2936b036.js";var $e={},Fn={get exports(){return $e},set exports(e){$e=e}},$={};/** @license React v16.13.1
  * react-is.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -285,6 +285,7 @@ import{R as G,r as oe,i as Yt,n as Y,j as L}from"./index-e0f057cf.js";var $e={},
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 `,ba=Y.ul`
   max-width: 1280px;
   margin: 0 auto;
@@ -300,7 +301,7 @@ import{R as G,r as oe,i as Yt,n as Y,j as L}from"./index-e0f057cf.js";var $e={},
   margin-top: 40px;
   margin-bottom: 40px;
   padding: 14px 56px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
