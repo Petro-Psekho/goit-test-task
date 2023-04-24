@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { Suspense } from "react";
 
 import logoGoIt from "../../img/goit.png";
@@ -9,7 +9,9 @@ export const Layout = () => {
     <main>
       <Header>
         <LogoWrap>
-          <Logo src={logoGoIt} alt="GOIT Logo" />
+          <Link to="/">
+            <Logo src={logoGoIt} alt="GOIT Logo" />
+          </Link>
           <p>Test Task</p>
         </LogoWrap>
 
