@@ -1,14 +1,19 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+import { HiChevronDoubleLeft } from 'react-icons/hi';
 import { getUsers } from '../../servises/usersApi';
 import { Loader } from '../../Loader/Loader';
 import { UserCardsItem } from '../UserCardsItem/UserCardsItem';
 
-import { ListContainer, UserCartsList, LoadMoreButton } from './UserCards.styled';
+import { ListContainer, UserCartsList, LoadMoreButton, GoBackButton } from './UserCards.styled';
 
 export const UserCards = () => {
   const [users, setUsers] = useState([]);
   const [loadMore, setLoadMore] = useState(false);
   const [page, setPage] = useState(2);
+
+  const location = useLocation();
 
   useEffect(() => {
     getUsers().then(data => {
@@ -30,6 +35,11 @@ export const UserCards = () => {
     <Loader />
   ) : (
     <ListContainer>
+      <GoBackButton to={location.state?.from ?? '/'}>
+        <span>
+          <HiChevronDoubleLeft size="28" />
+        </span>
+      </GoBackButton>
       <div>
         <UserCartsList>
           {users.map(user => (
