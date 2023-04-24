@@ -37,7 +37,7 @@ export const UserCards = () => {
     <ListContainer>
       <GoBackButton to={location.state?.from ?? '/'}>
         <span>
-          <HiChevronDoubleLeft size="28" />
+          <HiChevronDoubleLeft size="28" color="#5736a3  " />
         </span>
       </GoBackButton>
       <div>
