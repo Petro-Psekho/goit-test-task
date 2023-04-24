@@ -1,10 +1,11 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 `;
 
 export const UserCartsList = styled.ul`
@@ -24,7 +25,7 @@ export const LoadMoreButton = styled.button`
   margin-top: 40px;
   margin-bottom: 40px;
   padding: 14px 56px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;

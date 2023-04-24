@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
+export const Container = styled.main`
+  max-width: 1240px;
+  margin: 0 auto;
+`;
+
 export const Header = styled.header`
   display: flex;
   align-items: center;
@@ -13,11 +18,11 @@ export const Header = styled.header`
 
   > nav {
     display: flex;
+    margin-right: 30px;
   }
 `;
 
 export const StyledLink = styled(NavLink)`
-  margin-right: 20px;
   padding: 4px 12px;
   border-radius: 4px;
   text-decoration: none;

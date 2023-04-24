@@ -2,11 +2,11 @@ import { Outlet, Link } from "react-router-dom";
 import { Suspense } from "react";
 
 import logoGoIt from "../../img/goit.png";
-import { Header, StyledLink, LogoWrap, Logo } from "./Layout.styled";
+import { Container, Header, StyledLink, LogoWrap, Logo } from "./Layout.styled";
 
 export const Layout = () => {
   return (
-    <main>
+    <Container>
       <Header>
         <LogoWrap>
           <Link to="/">
@@ -25,6 +25,6 @@ export const Layout = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
-    </main>
+    </Container>
   );
 };
