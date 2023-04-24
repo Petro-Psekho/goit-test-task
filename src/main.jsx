@@ -7,7 +7,7 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <HashRouter basename="/goit-test-task/">
+    <HashRouter>
       <App />
     </HashRouter>
     {/* <BrowserRouter basename="/goit-test-task/">
