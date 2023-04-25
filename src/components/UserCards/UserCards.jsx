@@ -1,31 +1,52 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Select from 'react-select';
 
 import { HiChevronDoubleLeft } from 'react-icons/hi';
 import { getUsers } from '../../servises/usersApi';
 import { Loader } from '../../Loader/Loader';
 import { UserCardsItem } from '../UserCardsItem/UserCardsItem';
 
-import { ListContainer, UserCartsList, LoadMoreButton, GoBackButton } from './UserCards.styled';
+import {
+  ListContainer,
+  DropdownAndBackWrap,
+  UserCartsList,
+  LoadMoreButton,
+  GoBackButton,
+} from './UserCards.styled';
+
+const selectOptions = [
+  { value: '', label: 'All' },
+  { value: 'false', label: 'Follow' },
+  { value: 'true', label: 'Following' },
+];
 
 export const UserCards = () => {
   const [users, setUsers] = useState([]);
   const [loadMore, setLoadMore] = useState(false);
   const [page, setPage] = useState(2);
+  const [selectValue, setSelectValue] = useState('');
 
-  const location = useLocation();
+  console.log(users);
 
   useEffect(() => {
-    getUsers().then(data => {
+    getUsers(selectValue).then(data => {
       setUsers(data);
     });
-  }, []);
+  }, [selectValue]);
+
+  const handleChange = selectValue => {
+    setSelectValue(selectValue.value);
+    setPage(2);
+  };
+
+  const location = useLocation();
 
   const handleLoadMore = async () => {
     setLoadMore(true);
 
     setPage(prevState => prevState + 1);
-    const data = await getUsers(page);
+    const data = await getUsers(selectValue, page);
     setUsers(prevState => [...prevState, ...data]);
 
     setLoadMore(false);
@@ -34,27 +55,37 @@ export const UserCards = () => {
   return !users.length ? (
     <Loader />
   ) : (
-    <ListContainer>
-      <GoBackButton to={location.state?.from ?? '/'}>
-        <span>
-          <HiChevronDoubleLeft size="28" color="#5736a3  " />
-        </span>
-      </GoBackButton>
-      <div>
-        <UserCartsList>
-          {users.map(user => (
-            <UserCardsItem key={user.id} user={user} />
-          ))}
-        </UserCartsList>
-      </div>
-      {loadMore && <Loader />}
-      <LoadMoreButton
-        style={{ display: users.length > 11 ? 'none' : 'block' }}
-        onClick={handleLoadMore}
-        type="button"
-      >
-        {loadMore ? 'Loading...' : 'LOAD MORE'}
-      </LoadMoreButton>
-    </ListContainer>
+    <section>
+      <DropdownAndBackWrap>
+        <GoBackButton to={location.state?.from ?? '/'}>
+          <span>
+            <HiChevronDoubleLeft size="28" color="#5736a3  " />
+          </span>
+        </GoBackButton>
+        <Select
+          closeMenuOnSelect={true}
+          options={selectOptions}
+          value={selectValue}
+          onChange={handleChange}
+        />
+      </DropdownAndBackWrap>
+      <ListContainer>
+        <div>
+          <UserCartsList>
+            {users.map(user => (
+              <UserCardsItem key={user.id} user={user} />
+            ))}
+          </UserCartsList>
+        </div>
+        {loadMore && <Loader />}
+        <LoadMoreButton
+          style={{ display: !users.length && [] ? 'none' : 'block' }}
+          onClick={handleLoadMore}
+          type="button"
+        >
+          {loadMore ? 'Loading...' : 'LOAD MORE'}
+        </LoadMoreButton>
+      </ListContainer>
+    </section>
   );
 };
