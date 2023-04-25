@@ -1,4 +1,4 @@
-import{n as e,j as t}from"./index-706fa253.js";const s="/goit-test-task/assets/collage-6eb88c81.png",o=e.div`
+import{n as e,j as t}from"./index-865b6a00.js";const s="/goit-test-task/assets/collage-6eb88c81.png",o=e.div`
   display: flex;
 
   justify-content: center;
