@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Select from 'react-select';
+import { toast } from 'react-toastify';
 
 import { HiChevronDoubleLeft } from 'react-icons/hi';
 import { getUsers } from '../../servises/usersApi';
-import { Loader } from '../../Loader/Loader';
+import { Loader } from '../Loader/Loader';
 import { UserCardsItem } from '../UserCardsItem/UserCardsItem';
 
 import {
@@ -26,9 +27,7 @@ export const UserCards = () => {
   const [loadMore, setLoadMore] = useState(false);
   const [page, setPage] = useState(2);
   const [selectValue, setSelectValue] = useState('');
-  const [endUsers, setEndUsers] = useState(true);
-
-  console.log('endUsers', endUsers);
+  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(true);
 
   useEffect(() => {
     getUsers(selectValue).then(data => {
@@ -38,7 +37,7 @@ export const UserCards = () => {
 
   const handleChange = selectValue => {
     setSelectValue(selectValue.value);
-    setEndUsers(true);
+    setShowLoadMoreBtn(true);
     setPage(2);
   };
 
@@ -51,7 +50,8 @@ export const UserCards = () => {
     const data = await getUsers(selectValue, page);
 
     if (data.length === 0) {
-      setEndUsers(false);
+      setShowLoadMoreBtn(false);
+      toast.info('User Cards Off');
     }
 
     setUsers(prevState => [...prevState, ...data]);
@@ -85,18 +85,11 @@ export const UserCards = () => {
           </UserCartsList>
         </div>
         {loadMore && <Loader />}
-        {endUsers && (
+        {showLoadMoreBtn && (
           <LoadMoreButton onClick={handleLoadMore} type="button">
             {loadMore ? 'Loading...' : 'LOAD MORE'}
           </LoadMoreButton>
         )}
-        {/* <LoadMoreButton
-          style={{ display: !users.length ? 'none' : 'block' }}
-          onClick={handleLoadMore}
-          type="button"
-        >
-          {loadMore ? 'Loading...' : 'LOAD MORE'}
-        </LoadMoreButton> */}
       </ListContainer>
     </section>
   );
