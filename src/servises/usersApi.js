@@ -10,7 +10,7 @@ export const getUsers = async (check, page = 1) => {
       limit: 3,
     },
   });
-
+  // console.log(res);
   return res.data;
 };
 

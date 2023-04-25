@@ -26,8 +26,9 @@ export const UserCards = () => {
   const [loadMore, setLoadMore] = useState(false);
   const [page, setPage] = useState(2);
   const [selectValue, setSelectValue] = useState('');
+  const [endUsers, setEndUsers] = useState(true);
 
-  console.log(users);
+  console.log('endUsers', endUsers);
 
   useEffect(() => {
     getUsers(selectValue).then(data => {
@@ -37,6 +38,7 @@ export const UserCards = () => {
 
   const handleChange = selectValue => {
     setSelectValue(selectValue.value);
+    setEndUsers(true);
     setPage(2);
   };
 
@@ -47,6 +49,11 @@ export const UserCards = () => {
 
     setPage(prevState => prevState + 1);
     const data = await getUsers(selectValue, page);
+
+    if (data.length === 0) {
+      setEndUsers(false);
+    }
+
     setUsers(prevState => [...prevState, ...data]);
 
     setLoadMore(false);
@@ -78,13 +85,18 @@ export const UserCards = () => {
           </UserCartsList>
         </div>
         {loadMore && <Loader />}
-        <LoadMoreButton
-          style={{ display: !users.length && [] ? 'none' : 'block' }}
+        {endUsers && (
+          <LoadMoreButton onClick={handleLoadMore} type="button">
+            {loadMore ? 'Loading...' : 'LOAD MORE'}
+          </LoadMoreButton>
+        )}
+        {/* <LoadMoreButton
+          style={{ display: !users.length ? 'none' : 'block' }}
           onClick={handleLoadMore}
           type="button"
         >
           {loadMore ? 'Loading...' : 'LOAD MORE'}
-        </LoadMoreButton>
+        </LoadMoreButton> */}
       </ListContainer>
     </section>
   );
