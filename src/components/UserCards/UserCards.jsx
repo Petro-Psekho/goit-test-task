@@ -36,13 +36,13 @@ export const UserCards = () => {
     });
   }, [selectValue]);
 
+  const location = useLocation();
+
   const handleChange = selectValue => {
     setSelectValue(selectValue.value);
     setShowLoadMoreBtn(true);
     setPage(2);
   };
-
-  const location = useLocation();
 
   const handleLoadMore = async () => {
     setLoadMore(true);

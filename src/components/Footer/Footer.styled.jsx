@@ -18,7 +18,7 @@ export const Wrap = styled.div`
   align-items: center;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 5px;
+  /* padding: 0 10px; */
   gap: 30px;
 `;
 
@@ -29,6 +29,7 @@ export const FooterText = styled.p`
   font-weight: 500;
   font-size: 18px;
   line-height: 1.2;
+  color: #373737;
 `;
 
 export const LinkTo = styled.a`

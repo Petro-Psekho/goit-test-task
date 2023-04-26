@@ -32,7 +32,6 @@ export const UserCardsItem = user => {
 
     if (!checked) {
       setFollow(prevState => prevState + 1);
-      // setChecked(prevState => prevState, true);
 
       await updateUser(id, follow + 1, true);
     } else {
