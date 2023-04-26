@@ -1,4 +1,4 @@
-import{h as Si,r as E,E as Ci,c as Oi,s as wi,_ as R,a as xi,G as Ai,R as he,i as Tn,n as ie,j as J,L as Fi,u as Pi,Q as Di}from"./index-5099375d.js";var Ge={},Ti={get exports(){return Ge},set exports(t){Ge=t}},Y={};/** @license React v16.13.1
+import{h as Si,r as E,E as Ci,c as Oi,s as wi,_ as R,a as xi,G as Ai,R as he,i as Tn,n as ie,j as J,L as Fi,u as Pi,Q as Di}from"./index-0af4e649.js";var Ge={},Ti={get exports(){return Ge},set exports(t){Ge=t}},Y={};/** @license React v16.13.1
  * react-is.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -299,7 +299,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   margin: 0 30px 10px;
 `,Lc=ie(Fi)`
   padding: 4px 0 0;
-`,Vc=ie.ul`
+`,Vc=ie.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 96px;
+`,jc=ie.ul`
   max-width: 1280px;
   margin: 0 auto;
 
@@ -308,13 +313,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
-`,jc=ie.button`
+`,Bc=ie.button`
   display: inline-block;
-
   margin-top: 40px;
-  margin-bottom: 40px;
   padding: 14px 56px;
-  font-family: "Montserrat";
+
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -326,4 +330,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: 10px;
-`,Bc=[{value:"",label:"All"},{value:"false",label:"Follow"},{value:"true",label:"Following"}],Nc=()=>{var b;const[t,e]=E.useState([]),[n,o]=E.useState(!1),[r,i]=E.useState(2),[a,s]=E.useState(""),[u,l]=E.useState(!0);E.useEffect(()=>{cr(a).then(d=>{e(d)})},[a]);const c=d=>{s(d.value),l(!0),i(2)},f=Pi(),g=async()=>{o(!0),i(h=>h+1);const d=await cr(a,r);d.length===0&&(l(!1),Di.info("User Cards Off")),e(h=>[...h,...d]),o(!1)};return t.length?J.jsxs("section",{children:[J.jsxs(kc,{children:[J.jsx(Lc,{to:((b=f.state)==null?void 0:b.from)??"/",children:J.jsx("span",{children:J.jsx(hu,{size:"28",color:"#5736a3"})})}),J.jsx(pu,{closeMenuOnSelect:!0,options:Bc,value:a,onChange:c})]}),J.jsxs(_c,{children:[J.jsx("div",{children:J.jsx(Vc,{children:t.map(d=>J.jsx(Mc,{user:d},d.id))})}),n&&J.jsx(oo,{}),u&&J.jsx(jc,{onClick:g,type:"button",children:n?"Loading...":"LOAD MORE"})]})]}):J.jsx(oo,{})};function Hc(){return J.jsx(Nc,{})}export{Hc as default};
+`,Nc=[{value:"",label:"All"},{value:"false",label:"Follow"},{value:"true",label:"Following"}],$c=()=>{var b;const[t,e]=E.useState([]),[n,o]=E.useState(!1),[r,i]=E.useState(2),[a,s]=E.useState(""),[u,l]=E.useState(!0);E.useEffect(()=>{cr(a).then(d=>{e(d)})},[a]);const c=d=>{s(d.value),l(!0),i(2)},f=Pi(),g=async()=>{o(!0),i(h=>h+1);const d=await cr(a,r);d.length===0&&(l(!1),Di.info("User Cards Off")),e(h=>[...h,...d]),o(!1)};return t.length?J.jsxs("section",{children:[J.jsxs(kc,{children:[J.jsx(Lc,{to:((b=f.state)==null?void 0:b.from)??"/",children:J.jsx("span",{children:J.jsx(hu,{size:"28",color:"#5736a3"})})}),J.jsx(pu,{closeMenuOnSelect:!0,options:Nc,value:a,onChange:c})]}),J.jsx(_c,{children:J.jsxs(Vc,{children:[J.jsx(jc,{children:t.map(d=>J.jsx(Mc,{user:d},d.id))}),n&&J.jsx(oo,{}),u&&J.jsx(Bc,{onClick:g,type:"button",children:n?"Loading...":"LOAD MORE"})]})})]}):J.jsx(oo,{})};function Uc(){return J.jsx($c,{})}export{Uc as default};
