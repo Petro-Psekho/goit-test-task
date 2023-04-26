@@ -1,4 +1,4 @@
-import{h as xi,r as E,E as Ai,c as Fi,s as Pi,_ as R,a as Di,R as ee,i as Rn,n as ae,j as J,L as Ti,u as Ri,Q as Ii}from"./index-f5c87522.js";var Ye={},_i={get exports(){return Ye},set exports(t){Ye=t}},Y={};/** @license React v16.13.1
+import{h as xi,r as E,E as Ai,c as Fi,s as Pi,_ as R,a as Di,R as ee,i as Rn,n as ae,j as J,L as Ti,u as Ri,Q as Ii}from"./index-d4e5f95e.js";var Ye={},_i={get exports(){return Ye},set exports(t){Ye=t}},Y={};/** @license React v16.13.1
  * react-is.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -295,6 +295,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 74px 0 10px;
+
   margin: 0 30px 10px;
 `,Hc=ae(Ti)`
   padding: 4px 0 0;
@@ -313,7 +315,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   margin-top: 40px;
   margin-bottom: 40px;
   padding: 14px 56px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
