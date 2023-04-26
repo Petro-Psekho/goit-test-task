@@ -1,15 +1,15 @@
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
+import { Headerr } from "../Header/Header";
 
-import logoGoIt from "../../img/goit.png";
-import { Container, Header, StyledLink, LogoWrap, Logo } from "./Layout.styled";
+// import logoGoIt from "../../img/goit.png";
+import { Container } from "./Layout.styled";
 
 export const Layout = () => {
-  const location = useLocation();
-
   return (
     <Container>
-      <Header>
+      <Headerr />
+      {/* <Header>
         <LogoWrap>
           <Link to="/">
             <Logo src={logoGoIt} alt="GOIT Logo" />
@@ -25,7 +25,7 @@ export const Layout = () => {
             Cards
           </StyledLink>
         </nav>
-      </Header>
+      </Header> */}
 
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
