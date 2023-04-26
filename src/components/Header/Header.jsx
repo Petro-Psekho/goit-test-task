@@ -1,13 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 
-import { Header, StyledLink, LogoWrap, Logo } from "./Header.styled";
+import { HeaderWrap, StyledLink, LogoWrap, Logo } from "./Header.styled";
 
 import logoGoIt from "../../img/goit.png";
 
-export const Headerr = () => {
+export const Header = () => {
   const location = useLocation();
   return (
-    <Header>
+    <HeaderWrap>
       <LogoWrap>
         <Link to="/">
           <Logo src={logoGoIt} alt="GOIT Logo" />
@@ -23,6 +23,6 @@ export const Headerr = () => {
           Cards
         </StyledLink>
       </nav>
-    </Header>
+    </HeaderWrap>
   );
 };

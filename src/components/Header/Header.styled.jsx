@@ -1,23 +1,24 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
-export const Header = styled.header`
-  background: #ffffff;
-  z-index: 9999;
+export const HeaderWrap = styled.header`
   position: fixed;
-  width: 100%;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  width: 100%;
+
   padding: 8px 0;
-  margin-bottom: 16px;
-  /* border-bottom: 1px solid black; */
+  margin: 0 auto;
+
+  background: #ffffff;
   box-shadow: 0px 18px 20px -15px rgba(0, 0, 0, 0.27);
 
   > nav {
     display: flex;
     margin-right: 30px;
+    gap: 10px;
   }
 `;
 
@@ -42,7 +43,7 @@ export const StyledLink = styled(NavLink)`
 export const LogoWrap = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 0 0 20px;
+  margin: 0 0 0 30px;
 
   font-family: "Montserrat";
   font-style: normal;
