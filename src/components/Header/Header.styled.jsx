@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const HeaderWrap = styled.header`
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,11 +15,25 @@ export const HeaderWrap = styled.header`
   background: #ffffff;
   box-shadow: 0px 18px 20px -15px rgba(0, 0, 0, 0.27);
 
-  > nav {
+  /* > nav {
     display: flex;
     margin-right: 30px;
-    gap: 10px;
-  }
+    gap: 100px;
+  } */
+`;
+export const HeaderContentWrap = styled.div`
+  width: 1240px;
+  margin: 0px auto;
+  padding: 0px 20px;
+`;
+
+export const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+export const NavWrap = styled.nav`
+  /* margin-right: 42px; */
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -33,6 +47,7 @@ export const StyledLink = styled(NavLink)`
   font-size: 16px;
   line-height: 1.2;
   text-transform: uppercase;
+  /* margin-right: 30px; */
 
   &.active {
     color: white;
@@ -43,7 +58,7 @@ export const StyledLink = styled(NavLink)`
 export const LogoWrap = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 0 0 30px;
+  /* margin: 0 0 0 30px; */
 
   font-family: "Montserrat";
   font-style: normal;
