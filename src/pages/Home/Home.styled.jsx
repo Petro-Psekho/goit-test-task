@@ -2,11 +2,9 @@ import styled from "@emotion/styled";
 
 export const CollageWrap = styled.div`
   display: flex;
-
   justify-content: center;
-
-  padding: 8px 0;
-  margin-top: 36px;
+  align-items: center;
+  height: 100vh;
 `;
 
 export const Collage = styled.img`
