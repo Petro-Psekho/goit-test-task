@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const FooterWrap = styled.footer`
   position: fixed;
@@ -18,13 +18,13 @@ export const Wrap = styled.div`
   align-items: center;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 5px;
   gap: 30px;
 `;
 
 export const FooterText = styled.p`
   padding: 10px 0;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
