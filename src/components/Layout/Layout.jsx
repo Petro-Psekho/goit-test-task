@@ -1,8 +1,8 @@
-import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Outlet, Link, useLocation } from "react-router-dom";
+import { Suspense } from "react";
 
-import logoGoIt from '../../img/goit.png';
-import { Container, Header, StyledLink, LogoWrap, Logo } from './Layout.styled';
+import logoGoIt from "../../img/goit.png";
+import { Container, Header, StyledLink, LogoWrap, Logo } from "./Layout.styled";
 
 export const Layout = () => {
   const location = useLocation();
@@ -26,6 +26,7 @@ export const Layout = () => {
           </StyledLink>
         </nav>
       </Header>
+
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>

@@ -7,6 +7,10 @@ export const Container = styled.main`
 `;
 
 export const Header = styled.header`
+  background: #ffffff;
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
