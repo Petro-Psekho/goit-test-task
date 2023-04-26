@@ -1,6 +1,6 @@
-import collage from "../../img/collage.png";
+import collage from '../../img/collage.png';
 
-import { CollageWrap, Collage } from "./Home.styled";
+import { CollageWrap, Collage } from './Home.styled';
 
 export default function Home() {
   return (
