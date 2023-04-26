@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import Select from 'react-select';
-import { toast } from 'react-toastify';
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Select from "react-select";
+import { toast } from "react-toastify";
 
-import { HiChevronDoubleLeft } from 'react-icons/hi';
-import { getUsers } from '../../servises/usersApi';
-import { Loader } from '../Loader/Loader';
-import { UserCardsItem } from '../UserCardsItem/UserCardsItem';
+import { HiChevronDoubleLeft } from "react-icons/hi";
+import { getUsers } from "../../servises/usersApi";
+import { Loader } from "../Loader/Loader";
+import { UserCardsItem } from "../UserCardsItem/UserCardsItem";
 
 import {
   ListContainer,
@@ -14,28 +14,28 @@ import {
   UserCartsList,
   LoadMoreButton,
   GoBackButton,
-} from './UserCards.styled';
+} from "./UserCards.styled";
 
 const selectOptions = [
-  { value: '', label: 'All' },
-  { value: 'false', label: 'Follow' },
-  { value: 'true', label: 'Following' },
+  { value: "", label: "All" },
+  { value: "false", label: "Follow" },
+  { value: "true", label: "Following" },
 ];
 
 export const UserCards = () => {
   const [users, setUsers] = useState([]);
   const [loadMore, setLoadMore] = useState(false);
   const [page, setPage] = useState(2);
-  const [selectValue, setSelectValue] = useState('');
+  const [selectValue, setSelectValue] = useState("");
   const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(true);
 
   useEffect(() => {
-    getUsers(selectValue).then(data => {
+    getUsers(selectValue).then((data) => {
       setUsers(data);
     });
   }, [selectValue]);
 
-  const handleChange = selectValue => {
+  const handleChange = (selectValue) => {
     setSelectValue(selectValue.value);
     setShowLoadMoreBtn(true);
     setPage(2);
@@ -46,15 +46,15 @@ export const UserCards = () => {
   const handleLoadMore = async () => {
     setLoadMore(true);
 
-    setPage(prevState => prevState + 1);
+    setPage((prevState) => prevState + 1);
     const data = await getUsers(selectValue, page);
 
     if (data.length === 0) {
       setShowLoadMoreBtn(false);
-      toast.info('User Cards Off');
+      toast.info("User Cards Off");
     }
 
-    setUsers(prevState => [...prevState, ...data]);
+    setUsers((prevState) => [...prevState, ...data]);
 
     setLoadMore(false);
   };
@@ -64,9 +64,9 @@ export const UserCards = () => {
   ) : (
     <section>
       <DropdownAndBackWrap>
-        <GoBackButton to={location.state?.from ?? '/'}>
+        <GoBackButton to={location.state?.from ?? "/"}>
           <span>
-            <HiChevronDoubleLeft size="28" color="#5736a3  " />
+            <HiChevronDoubleLeft size="28" color="#5736a3" />
           </span>
         </GoBackButton>
         <Select
@@ -79,7 +79,7 @@ export const UserCards = () => {
       <ListContainer>
         <div>
           <UserCartsList>
-            {users.map(user => (
+            {users.map((user) => (
               <UserCardsItem key={user.id} user={user} />
             ))}
           </UserCartsList>
@@ -87,7 +87,7 @@ export const UserCards = () => {
         {loadMore && <Loader />}
         {showLoadMoreBtn && (
           <LoadMoreButton onClick={handleLoadMore} type="button">
-            {loadMore ? 'Loading...' : 'LOAD MORE'}
+            {loadMore ? "Loading..." : "LOAD MORE"}
           </LoadMoreButton>
         )}
       </ListContainer>

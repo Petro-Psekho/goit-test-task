@@ -6,7 +6,6 @@ export const ListContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-top: 10px; */
 `;
 
 export const DropdownAndBackWrap = styled.div`
